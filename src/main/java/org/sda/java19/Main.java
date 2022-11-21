@@ -16,6 +16,16 @@ package org.sda.java19;
  */
 public class Main {
     public static void main(String[] args) {
+        /*
+        1. Create Warehouse, Product, ProductCategory (enum), Currency (enum) - models package
+        2. Warehouse : name, List of Product, address, is Active
+        3. Product: name, pricePerItem, quantity, product category, currency, isAvailable
+        4. Interface for adding display and deleting items
+            Create Warehouse object, before create List of products.
+         5. In main method, switch case for various operations.
+         6. For each operation call service method and do the operation
+
+         */
 
 
 
