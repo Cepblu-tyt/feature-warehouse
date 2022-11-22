@@ -2,6 +2,8 @@ package org.sda.java19;
 
 import org.sda.java19.models.ProductCategory;
 import org.sda.java19.models.Warehouse;
+import org.sda.java19.services.WarehouseService;
+import org.sda.java19.services.implementation.WarehouseServiceImpl;
 import org.sda.java19.util.Data;
 
 import java.awt.*;
@@ -18,7 +20,9 @@ import java.util.Scanner;
  * "scissors:+4"
  */
 public class Main {
+
     private static final Scanner SCANNER = new Scanner(System.in);
+
 
     public static void main(String[] args) {
         /*
@@ -30,6 +34,7 @@ public class Main {
         6. For each operation, call service method and do the operation
          */
 
+        WarehouseService warehouseService = new WarehouseServiceImpl();
 
         //Initializing the warehouse
         Warehouse warehouse = new Warehouse();
@@ -40,6 +45,6 @@ public class Main {
         warehouse.setProducts(Data.getInitialProducts());
 
 
-
+        warehouseService.addWarehouse(warehouse);
     }
 }
