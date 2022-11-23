@@ -21,22 +21,27 @@ public class Main {
                     .filter(s -> s.startsWith("Car"))   // Filter returns Stream<T>
                     .collect(Collectors.toList()); // Convert Stream<T> to List<T>
             System.out.println(carList.toString());
+            System.out.println("We have: " + carList.size() + " cars.");
 
             List<String> motorcycleList = vehicleList.stream()
                     .filter(s -> s.startsWith("Motorcycle"))   // Filter returns Stream<T>
                     .collect(Collectors.toList()); // Convert Stream<T> to List<T>
             System.out.println(motorcycleList.toString());
+            System.out.println("We have: " + motorcycleList.size() + " motorcycles.");
 
 
             List<String> tractorList = vehicleList.stream()
                     .filter(s -> s.startsWith("Tractor"))   // Filter returns Stream<T>
                     .collect(Collectors.toList()); // Convert Stream<T> to List<T>
             System.out.println(tractorList.toString());
+            System.out.println("We have: " + tractorList.size() + " tractors.");
 
             List<String> bicycleList = vehicleList.stream()
                     .filter(s -> s.startsWith("Bicycle"))   // Filter returns Stream<T>
                     .collect(Collectors.toList()); // Convert Stream<T> to List<T>
             System.out.println(bicycleList.toString());
+            System.out.println("We have: " + bicycleList.size() + " bicycles.");
+
 
 
         } catch (IOException e) {
