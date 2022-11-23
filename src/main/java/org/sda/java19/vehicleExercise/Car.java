@@ -1,15 +1,14 @@
 package org.sda.java19.vehicleExercise;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@AllArgsConstructor
+import lombok.Data;
+import java.math.BigDecimal;
+
+
 @Data
-public class Car {
-    private String brand;
-    private String model;
-    private double price;
-    private int topSpeed;
-    private Transmission transmission;
-    private Shape shape;
+public class Car extends  Vehicle{
+
+    private float topSpeed;
+    private VehicleTransmission vehicleTransmission;
+    private VehicleShape vehicleShape;
 }

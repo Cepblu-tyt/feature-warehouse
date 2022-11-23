@@ -1,6 +1,6 @@
 package org.sda.java19.vehicleExercise;
 
-public enum Transmission {
+public enum VehicleTransmission {
     MANUAL,
     AUTOMATIC;
 }

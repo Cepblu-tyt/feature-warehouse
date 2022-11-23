@@ -1,13 +1,11 @@
 package org.sda.java19.vehicleExercise;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
 
-@AllArgsConstructor
+
 @Data
-public class Motorcycle {
-    private String brand;
-    private String model;
-    private double price;
-    private int TopSpeed;
+public class Motorcycle extends Vehicle{
+      private float TopSpeed;
+      private VehicleShape vehicleShape;
 }
