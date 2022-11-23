@@ -10,4 +10,4 @@ Motorcycle, Honda, NC750, 8000, 200, ENDURO
 Tractor, John Deer, T200, 31000, 5000
 Car, Honda, Civic, 13000, 180, MANUAL, COUPE
 Bicycle, Giant, T1X, 1200
-Tractor, Ferarri, X23, unknown, 2000
+Tractor, Ferarri, X23, unknow, 2000

@@ -1,7 +1,9 @@
 package org.sda.java19.vehicleExercise;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
+import java.math.BigDecimal;
+@Data
 public class Vehicle {
 
     private String brand;

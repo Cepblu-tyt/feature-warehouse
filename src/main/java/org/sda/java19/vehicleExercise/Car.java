@@ -6,9 +6,8 @@ import java.math.BigDecimal;
 
 
 @Data
-public class Car extends  Vehicle{
+public class Car extends  Motorcycle{
 
-    private float topSpeed;
     private VehicleTransmission vehicleTransmission;
-    private VehicleShape vehicleShape;
+
 }
