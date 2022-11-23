@@ -1,5 +1,6 @@
 package org.sda.java19.services;
 
+import org.sda.java19.exceptions.WarehouseNotFoundException;
 import org.sda.java19.models.Product;
 import org.sda.java19.models.ProductCategory;
 
@@ -15,7 +16,7 @@ public interface ProductService {
     void updateProduct(Product product);
     void deleteProductByName(String name);
     Product getProductByName(String name);
-    List<Product> getAllProductsByProductCategory(ProductCategory productCategory);
-    List<Product> getAllProducts();
+    List<Product> getAllProductsByProductCategory(ProductCategory productCategory) throws WarehouseNotFoundException;
+    List<Product> getAllProducts() throws WarehouseNotFoundException;
 
 }
