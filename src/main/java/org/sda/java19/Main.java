@@ -9,9 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -79,6 +77,30 @@ public class Main {
         System.out.println("Number of motorcycles: " + motorcycleList.size());
         System.out.println("Number of tractors: " + tractorList.size());
 
+        //#3
+        //Brand count for cars
+        Map<String,Long> brandMap = carList.stream()
+                .collect(Collectors.groupingBy(Car::getBrand, Collectors.counting()));
+        System.out.println(brandMap);
+
+
+        //#4
+        //Sort by price
+        carList.stream()
+                .sorted(Comparator.comparing(Vehicle::getPrice))
+                .collect(Collectors.toList())
+                .forEach(car -> System.out.println(car.toString()));
+
+        //#5
+        motorcycleList.stream()
+                .filter(motorcycle -> VehicleShape.CHOPPER.equals(motorcycle.getVehicleShape()))
+                .sorted(Comparator.comparing((Motorcycle::getTopSpeed)))
+                .collect(Collectors.toList())
+                .forEach(motorcycle -> System.out.println(motorcycle.toString()));
+
+        //#6
+        Path carPath = Paths.get("\\Users\\Home\\java-advance\\java-advanced-coding\\src\\main\\java\\resources\\cars.txt");
+        Files.write(carPath, convertObjectListToStringList(Collections.singletonList(carList)), StandardOpenOption.WRITE);
 
     }
 
@@ -100,5 +122,9 @@ public class Main {
         }
     }
 
-
+    private static List<String> convertObjectListToStringList(List<Object> objectList) {
+        return objectList.stream()
+                .map(Object::toString)
+                .collect(Collectors.toList());
+    }
 }
