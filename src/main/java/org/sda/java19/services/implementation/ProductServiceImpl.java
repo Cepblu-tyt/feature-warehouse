@@ -6,12 +6,9 @@ import org.sda.java19.models.ProductCategory;
 import org.sda.java19.models.Warehouse;
 import org.sda.java19.services.ProductService;
 import org.sda.java19.services.WarehouseService;
-import org.sda.java19.util.Data;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static com.sun.org.apache.xml.internal.serializer.Version.getProduct;
 
 public class ProductServiceImpl implements ProductService {
     private final WarehouseService warehouseService = new WarehouseServiceImpl();

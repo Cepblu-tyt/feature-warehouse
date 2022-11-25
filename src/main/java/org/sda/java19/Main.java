@@ -76,21 +76,21 @@ public class Main {
         }
     }
 
- private static int getOption() {
+    private static int getOption() {
         // User should be able to: add, display all of the details, update, delete an item
-     System.out.println("--------------");
-     System.out.println("     MENU    ");
-     System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("     MENU    ");
+        System.out.println("--------------");
 
-     List<String> menu = List.of("Add item", "Delete item", "Display items", "Exit");
+        List<String> menu = List.of("Add item", "Update items", "Delete item", "Display items");
 
-     for (int i = 0; i < menu.size(); i++) {
-         System.out.println(i + 1 + ". " + menu.get(i));
-     }
+        for (int i = 0; i < menu.size(); i++) {
+            System.out.println(i + 1 + ". " + menu.get(i));
+        }
 
-     System.out.println("Choose a menu from above:");
+        System.out.println("Choose a menu from above:");
 
-     return SCANNER.nextInt();
+        return SCANNER.nextInt();
 
     }
 
@@ -118,10 +118,9 @@ public class Main {
 
         return product;
 
-
     }
 
-  private static Product updateProduct() {
+    private static Product updateProduct() {
 
         //Need to display all the products and then ask user to which product to update.
         return null;
