@@ -6,11 +6,28 @@ import org.sda.java19.models.Warehouse;
 
 public interface WarehouseService {
 
+    /**
+     * To add a new warehouse
+     * @param warehouse Warehouse
+     */
     void addWarehouse(Warehouse warehouse);
-    void updateWarehouse(Warehouse warehouse);
-    void deleteWarehouse();
-    Warehouse getWarehouse() throws WarehouseNotFoundException;
 
+    /**
+     * To update an existing warehouse
+     * @param warehouse Warehouse
+     */
+    void updateWarehouse(Warehouse warehouse);
+
+    /**
+     * To delete a warehouse
+     */
+    void deleteWarehouse();
+
+    /**
+     * To get a warehouse
+     * @return Warehouse
+     */
+    Warehouse getWarehouse() throws WarehouseNotFoundException;
 }
 
 
