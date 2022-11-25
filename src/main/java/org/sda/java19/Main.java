@@ -1,6 +1,7 @@
 package org.sda.java19;
 
 import org.sda.java19.exceptions.WarehouseNotFoundException;
+import org.sda.java19.models.Currency;
 import org.sda.java19.models.Product;
 import org.sda.java19.models.ProductCategory;
 import org.sda.java19.models.Warehouse;
@@ -10,11 +11,11 @@ import org.sda.java19.services.implementation.ProductServiceImpl;
 import org.sda.java19.services.implementation.WarehouseServiceImpl;
 import org.sda.java19.util.Data;
 
-import java.awt.*;
-import java.math.BigDecimal;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
 /**
  * 2. Warehouse
  * a. User should be able to: add, display all of the details, update, delete an item
@@ -24,9 +25,10 @@ import java.util.Scanner;
  * “pliers:30”
  * “scissors:+4”
  *
- * @author Vinod John
+ * @author Sergei Oksanen
  */
 public class Main {
+    private static final Scanner SCANNER = new Scanner(System.in);
     public static void main(String[] args) throws WarehouseNotFoundException {
         /*
         1. Create Warehouse, Product, ProductCategory (enum), Currency (enum) - models package
@@ -38,7 +40,6 @@ public class Main {
          */
 
         WarehouseService warehouseService = new WarehouseServiceImpl();
-        Scanner scanner = new Scanner(System.in);
 
         //Initializing the warehouse
         Warehouse warehouse = new Warehouse();
@@ -50,49 +51,82 @@ public class Main {
         warehouseService.addWarehouse(warehouse); // Adds new warehouse
 
         productOperations();
+
     }
+
 
     private static void productOperations() throws WarehouseNotFoundException {
         ProductService productService = new ProductServiceImpl();
 
-
         int option = getOption();
 
-        switch(option) {
-            case 0: //Add a product
+        switch (option) {
+            case 1: //Add a product
                 productService.addProduct(addProduct());
+                productOperations();
                 break;
-            case 1: //Update a product
+            case 2: //Update a product
+                productService.updateProduct(updateProduct());
+                productOperations();
+                break;
+
+            default:
+                System.out.println("Incorrect option, choose the correct one!");
+                //Update a product
         }
     }
-    private static int getOption() {
-        Scanner scanner = new Scanner(System.in);
-        // User should be able to: add, display all of the details, update, delete an item
 
-        return 0;
+ private static int getOption() {
+        // User should be able to: add, display all of the details, update, delete an item
+     System.out.println("--------------");
+     System.out.println("     MENU    ");
+     System.out.println("--------------");
+
+     List<String> menu = List.of("Add item", "Delete item", "Display items", "Exit");
+
+     for (int i = 0; i < menu.size(); i++) {
+         System.out.println(i + 1 + ". " + menu.get(i));
+     }
+
+     System.out.println("Choose a menu from above:");
+
+     return SCANNER.nextInt();
+
     }
 
     private static Product addProduct() {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter the details of the product:");
         System.out.println("Product name:");
-        String productName = scanner.next();
+        String productName = SCANNER.next();
         System.out.println("Product price:");
-        float price = scanner.nextFloat();
+        float price = SCANNER.nextFloat();
+        System.out.println("Choose a product currency: " + Arrays.toString(Currency.values()));
+        Currency currency = Currency.valueOf(SCANNER.next());
         System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
-        ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
+        ProductCategory productCategory = ProductCategory.valueOf(SCANNER.next());
+
 
 
         Product product = new Product();
         product.setName(productName);
         product.setPricePerItem(Float.valueOf(price));
+        product.setCurrency(currency);
         product.setProductCategory(productCategory);
 
+        System.out.println(product);
+
         return product;
+
+
     }
 
-    private static Product updateProduct() {
+  private static Product updateProduct() {
+
         //Need to display all the products and then ask user to which product to update.
-return null;
+        return null;
+
     }
-    }
+
+
+}
