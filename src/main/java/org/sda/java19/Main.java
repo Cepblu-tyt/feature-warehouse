@@ -15,6 +15,7 @@ import org.sda.java19.util.Data;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * 2. Warehouse
@@ -49,8 +50,13 @@ public class Main {
         warehouse.setProducts(Data.getInitialProducts());
 
         warehouseService.addWarehouse(warehouse); // Adds new warehouse
+        warehouseService.updateWarehouse(warehouse);
 
+        System.out.println(warehouse);
         productOperations();
+        System.out.println(warehouse);
+
+
 
     }
 
@@ -63,12 +69,31 @@ public class Main {
         switch (option) {
             case 1: //Add a product
                 productService.addProduct(addProduct());
-                productOperations();
+                           productOperations();
                 break;
             case 2: //Update a product
                 productService.updateProduct(updateProduct());
+                             productOperations();
+                break;
+
+            case 3: //Update a product
+                productService.deleteProductByName(deleteProduct());
                 productOperations();
                 break;
+
+            case 4: //Update a product
+                displayAllProducts(productService.getAllProducts());
+                productOperations();
+                break;
+
+            case 5: //Display summary
+
+                break;
+
+            case 6: //Display summary
+
+                break;
+
 
             default:
                 System.out.println("Incorrect option, choose the correct one!");
@@ -93,8 +118,13 @@ public class Main {
         return SCANNER.nextInt();
 
     }
-
-    private static Product addProduct() {
+    private static void displayAllProducts(List<Product> products) {
+       products.forEach(System.out::println);
+    }
+private static  String deleteProduct() {
+        return null;
+}
+    private static Product addProduct( ) {
 
         System.out.println("Enter the details of the product:");
         System.out.println("Product name:");
@@ -113,6 +143,7 @@ public class Main {
         product.setPricePerItem(Float.valueOf(price));
         product.setCurrency(currency);
         product.setProductCategory(productCategory);
+        product.setAvailable(true);
 
         System.out.println(product);
 
@@ -120,12 +151,19 @@ public class Main {
 
     }
 
+
     private static Product updateProduct() {
 
         //Need to display all the products and then ask user to which product to update.
         return null;
 
     }
+
+    public static Product deleteProductByName() {
+
+        return null;
+   }
+
 
 
 }
