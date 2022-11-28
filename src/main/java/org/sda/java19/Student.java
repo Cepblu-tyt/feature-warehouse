@@ -1,4 +1,8 @@
 package org.sda.java19;
 
-public class Student {
+import lombok.Data;
+
+@Data
+public class Student extends Person{
+    private boolean hasPreviousJavaKnowledge;
 }
