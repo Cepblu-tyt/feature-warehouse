@@ -1,4 +1,4 @@
-package org.sda.java19;
+package org.sda.java19.models;
 
 import lombok.Data;
 
