@@ -28,6 +28,7 @@ import java.util.*;
  */
 public class Main {
     private static final Scanner SCANNER = new Scanner(System.in);
+
     public static void main(String[] args) throws WarehouseNotFoundException {
         /*
         1. Create Warehouse, Product, ProductCategory (enum), Currency (enum) - models package
@@ -61,7 +62,7 @@ public class Main {
 
         int option = getOption();
 
-        switch(option) {
+        switch (option) {
             case 0: //Add a product
                 productService.addProduct(addProduct());
                 getOption();
@@ -109,12 +110,15 @@ public class Main {
         return SCANNER.nextInt();
 
     }
+
     private static void displayAllProducts(List<Product> products) {
-       products.forEach(System.out::println);
+        products.forEach(System.out::println);
     }
-private static  String deleteProduct() {
+
+    private static String deleteProduct() {
         return null;
-}
+    }
+
     private static Product addProduct() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the details of the product:");
@@ -124,11 +128,19 @@ private static  String deleteProduct() {
         float price = scanner.nextFloat();
         System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
         ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
+        System.out.println("Choose a currency: " + Arrays.toString(Currency.values()));
+        Currency currency = Currency.valueOf(scanner.next());
+        System.out.println("Is available: ");
+        boolean isAvailable = scanner.hasNextBoolean();
+
 
         Product product = new Product();
         product.setName(productName);
         product.setPrice(BigDecimal.valueOf(price));
         product.setProductCategory(productCategory);
+        product.setCurrency(currency);
+        product.setAvailable(isAvailable);
+
 
         return product;
     }
@@ -144,8 +156,5 @@ private static  String deleteProduct() {
     public static Product deleteProductByName() {
 
         return null;
-   }
-
-
-
+    }
 }
