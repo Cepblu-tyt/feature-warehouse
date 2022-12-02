@@ -13,8 +13,22 @@ import java.util.Optional;
  * @author  Sergei Oksanen
  */
 public interface ProductService {
-    void addProduct(Product product);
+    /**
+     * To add a new product in a warehouse
+     * @param product Product
+     */
+    void addProduct(Product product) throws WarehouseNotFoundException;
+
+    /**
+     * To update an existing product in a warehouse
+     * @param product Product
+     */
     void updateProduct(Product product);
+
+    /**
+     * To delete a product in a warehouse by its name
+     * @param name name of the product
+     */
     void deleteProductByName(String name) throws WarehouseNotFoundException;
 
     /**

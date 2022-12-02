@@ -2,6 +2,8 @@ package org.sda.java19.models;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 /**
  * Product should have: pricePerItem, name, quantity, product category, currency, isAvailable
  */
@@ -15,7 +17,7 @@ import lombok.*;
 public class Product {
 
     private String name;
-    private float pricePerItem;
+    private BigDecimal price;
     private int quantity;
     private ProductCategory productCategory;
     private Currency currency;

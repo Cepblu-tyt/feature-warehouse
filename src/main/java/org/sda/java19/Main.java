@@ -12,10 +12,8 @@ import org.sda.java19.services.implementation.WarehouseServiceImpl;
 import org.sda.java19.util.Data;
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * 2. Warehouse
@@ -54,9 +52,6 @@ public class Main {
 
         System.out.println(warehouse);
         productOperations();
-        System.out.println(warehouse);
-
-
 
     }
 
@@ -66,51 +61,47 @@ public class Main {
 
         int option = getOption();
 
-        switch (option) {
-            case 1: //Add a product
+        switch(option) {
+            case 0: //Add a product
                 productService.addProduct(addProduct());
-                           productOperations();
+                getOption();
                 break;
-            case 2: //Update a product
+            case 1: //Update a product
                 productService.updateProduct(updateProduct());
-                             productOperations();
+                getOption();
                 break;
-
-            case 3: //Update a product
+            case 2:
                 productService.deleteProductByName(deleteProduct());
-                productOperations();
+                getOption();
                 break;
-
-            case 4: //Update a product
+            case 3:
                 displayAllProducts(productService.getAllProducts());
-                productOperations();
+                getOption();
                 break;
-
-            case 5: //Display summary
-
+            case 4:
+                //display summary
                 break;
-
-            case 6: //Display summary
-
+            case 5:
+                //sum of products and prices
                 break;
-
-
             default:
                 System.out.println("Incorrect option, choose the correct one!");
-                //Update a product
+                productOperations();
+
+
         }
     }
 
     private static int getOption() {
         // User should be able to: add, display all of the details, update, delete an item
-        System.out.println("--------------");
-        System.out.println("     MENU    ");
-        System.out.println("--------------");
+
+        System.out.println("     MENU :    ");
+
 
         List<String> menu = List.of("Add item", "Update items", "Delete item", "Display items");
 
         for (int i = 0; i < menu.size(); i++) {
-            System.out.println(i + 1 + ". " + menu.get(i));
+            System.out.println(i + ". " + menu.get(i));
         }
 
         System.out.println("Choose a menu from above:");
@@ -124,31 +115,22 @@ public class Main {
 private static  String deleteProduct() {
         return null;
 }
-    private static Product addProduct( ) {
-
+    private static Product addProduct() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the details of the product:");
         System.out.println("Product name:");
-        String productName = SCANNER.next();
+        String productName = scanner.next();
         System.out.println("Product price:");
-        float price = SCANNER.nextFloat();
-        System.out.println("Choose a product currency: " + Arrays.toString(Currency.values()));
-        Currency currency = Currency.valueOf(SCANNER.next());
+        float price = scanner.nextFloat();
         System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
-        ProductCategory productCategory = ProductCategory.valueOf(SCANNER.next());
-
-
+        ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
 
         Product product = new Product();
         product.setName(productName);
-        product.setPricePerItem(Float.valueOf(price));
-        product.setCurrency(currency);
+        product.setPrice(BigDecimal.valueOf(price));
         product.setProductCategory(productCategory);
-        product.setAvailable(true);
-
-        System.out.println(product);
 
         return product;
-
     }
 
 

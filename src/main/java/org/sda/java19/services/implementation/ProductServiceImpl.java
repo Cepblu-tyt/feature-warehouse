@@ -58,7 +58,6 @@ public class ProductServiceImpl implements ProductService {
         warehouseService.updateWarehouse(warehouse);
     }
 
-
     @Override
     public Optional<Product> getProductByName(String name) throws WarehouseNotFoundException {
         return getAllProducts().stream()

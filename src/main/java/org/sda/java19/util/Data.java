@@ -5,6 +5,7 @@ import org.sda.java19.models.Product;
 import org.sda.java19.models.ProductCategory;
 import org.sda.java19.models.Warehouse;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Data {
@@ -15,7 +16,7 @@ public class Data {
         Product product = new Product();
         product.setName("Apple");
         product.setProductCategory(ProductCategory.FRUITS);
-        product.setPricePerItem(5.30f);
+        product.setPrice(BigDecimal.valueOf(12.2));
         product.setQuantity(10);
         product.setAvailable(true);
         product.setCurrency(Currency.EUR);
@@ -25,7 +26,7 @@ public class Data {
         Product product1 = new Product();
         product1.setName("Kalev");
         product1.setProductCategory(ProductCategory.CANDY);
-        product1.setPricePerItem(0.35f);
+        product1.setPrice(BigDecimal.valueOf(2));
         product1.setQuantity(100);
         product1.setAvailable(true);
         product1.setCurrency(Currency.EUR);
