@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
     public void addProduct(Product product) {
         try {
             Warehouse warehouse = warehouseService.getWarehouse();
-            List<Product> products = new ArrayList<>(Arrays.asList(product));
+            List<Product> products = new ArrayList<>(Arrays.asList(warehouse.getProducts().toArray(new Product[0])));
             products.add(product);
             warehouse.setProducts(products);
             warehouseService.updateWarehouse(warehouse);
