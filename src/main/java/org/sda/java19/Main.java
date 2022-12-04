@@ -133,8 +133,9 @@ public class Main {
         ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
         System.out.println("Choose a currency: " + Arrays.toString(Currency.values()));
         Currency currency = Currency.valueOf(scanner.next());
-        System.out.println("Is available: ");
-        boolean isAvailable = scanner.hasNextBoolean();
+        System.out.println("Quantity: ");
+        int quantity = scanner.nextInt();
+        boolean isAvailable = true;
 
 
         Product product = new Product();
@@ -142,6 +143,7 @@ public class Main {
         product.setPrice(BigDecimal.valueOf(price));
         product.setProductCategory(productCategory);
         product.setCurrency(currency);
+        product.setQuantity(quantity);
         product.setAvailable(isAvailable);
 
         return product;
