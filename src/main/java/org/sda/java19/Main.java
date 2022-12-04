@@ -141,7 +141,6 @@ public class Main {
         product.setCurrency(currency);
         product.setAvailable(isAvailable);
 
-
         return product;
     }
 
