@@ -53,6 +53,7 @@ public class Main {
 
         System.out.println(warehouse);
         productOperations();
+        System.out.println(warehouse);
 
     }
 
@@ -65,19 +66,19 @@ public class Main {
         switch (option) {
             case 0: //Add a product
                 productService.addProduct(addProduct());
-                getOption();
+                productOperations();
                 break;
             case 1: //Update a product
                 productService.updateProduct(updateProduct());
-                getOption();
+                productOperations();
                 break;
             case 2:
                 productService.deleteProductByName(deleteProduct());
-                getOption();
+                productOperations();
                 break;
             case 3:
                 displayAllProducts(productService.getAllProducts());
-                getOption();
+                productOperations();
                 break;
             case 4:
                 //display summary
@@ -96,7 +97,7 @@ public class Main {
     private static int getOption() {
         // User should be able to: add, display all of the details, update, delete an item
 
-        System.out.println("     MENU :    ");
+        System.out.println("  MENU :    ");
 
 
         List<String> menu = List.of("Add item", "Update items", "Delete item", "Display items");
@@ -109,10 +110,12 @@ public class Main {
 
         return SCANNER.nextInt();
 
+
     }
 
     private static void displayAllProducts(List<Product> products) {
         products.forEach(System.out::println);
+
     }
 
     private static String deleteProduct() {
@@ -142,6 +145,7 @@ public class Main {
         product.setAvailable(isAvailable);
 
         return product;
+
     }
 
 
@@ -156,4 +160,6 @@ public class Main {
 
         return null;
     }
+
+
 }

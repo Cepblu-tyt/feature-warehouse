@@ -7,6 +7,8 @@ import org.sda.java19.models.Warehouse;
 import org.sda.java19.services.ProductService;
 import org.sda.java19.services.WarehouseService;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -15,10 +17,11 @@ public class ProductServiceImpl implements ProductService {
     private final WarehouseService warehouseService = new WarehouseServiceImpl();
 
     @Override
+
     public void addProduct(Product product) {
         try {
             Warehouse warehouse = warehouseService.getWarehouse();
-            List<Product> products = warehouse.getProducts();
+            List<Product> products = new ArrayList<>(Arrays.asList(product));
             products.add(product);
             warehouse.setProducts(products);
             warehouseService.updateWarehouse(warehouse);
