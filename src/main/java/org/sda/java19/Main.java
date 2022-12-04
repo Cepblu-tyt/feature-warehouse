@@ -73,7 +73,7 @@ public class Main {
                 productOperations();
                 break;
             case 2:
-                productService.deleteProductByName(deleteProduct());
+                productService.deleteProductByName(deleteProductByName());
                 productOperations();
                 break;
             case 3:
@@ -118,9 +118,7 @@ public class Main {
 
     }
 
-    private static String deleteProduct() {
-        return null;
-    }
+
 
     private static Product addProduct() {
         Scanner scanner = new Scanner(System.in);
@@ -158,10 +156,26 @@ public class Main {
 
     }
 
-    public static Product deleteProductByName() {
+    public static String deleteProductByName() {
 
-        return null;
+//        boolean isDelete = true;
+//        while(isDelete) {
+//            System.out.println("Enter an item name to be deleted from warehouse: ");
+//            String deleteItem = SCANNER.next();
+//
+//         if (products.contains(deleteItem)){
+//               products.remove(deleteItem);
+//                System.out.println("'"+ deleteItem +"' deleted from the bag. Do you want to delete more item?");
+//            } else {
+//                System.out.println("The item not exists, do you want to delete an other item?");
+//            }
+//
+//            isDelete = SCANNER.nextBoolean();
+//        }
+return null;
+    }
     }
 
 
-}
+
+
